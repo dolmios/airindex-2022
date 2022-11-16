@@ -1,0 +1,3 @@
+{
+  "extends": ["dolmios", "next/core-web-vitals"]
+}

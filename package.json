@@ -1,0 +1,34 @@
+{
+  "name": "airindex",
+  "description": "A research project directory of short-term rental companies in Australia.",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "build:sitemap": "next-sitemap",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts}' '!node_modules/**' '!.git/**' '!.next/**'",
+    "dev": "next dev -p 420",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next/font": "^13.0.3",
+    "next": "13.0.3",
+    "next-seo": "^5.14.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.9.3"
+  },
+  "packageManager": "yarn@3.2.4",
+  "devDependencies": {
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "eslint": "8.27.0",
+    "eslint-config-dolmios": "^1.3.0",
+    "eslint-config-next": "13.0.3",
+    "next-sitemap": "^3.1.31",
+    "prettier": "^2.7.1",
+    "styled-jsx": "^5.1.0"
+  },
+  "prettier": "eslint-config-dolmios/.prettierrc.json"
+}
