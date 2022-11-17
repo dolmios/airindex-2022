@@ -14,7 +14,7 @@ export default function Build({
 
   const { data, error } = useSWRImmutable(
     isReady
-      ? `${process.env.NEXT_PUBLIC_SCRAPE_ENDPOINT}/market/summary/?access_token=${process.env.NEXT_PUBLIC_SCRAPE_API_KEY}&city_id=${city}&currency=aud`
+      ? `${process.env.NEXT_PUBLIC_SCRAPE_ENDPOINT}/market/summary/?access_token=${process.env.NEXT_PUBLIC_SCRAPE_API_KEY}&city_id=${city}&currency=native`
       : null
   );
   const [status, setStatus] = useState('');
