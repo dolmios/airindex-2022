@@ -35,17 +35,133 @@ export default css.global`
     background-color: ${theme.colors.background};
   }
 
-  main {
-    margin: 0 auto;
-    padding: 0 0.75rem;
-    max-width: 135rem;
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-bottom: ${theme.space.c}rem;
   }
 
+  h5,
+  h6,
+  p {
+    margin-bottom: ${theme.space.b}rem;
+  }
+
+  h1:last-child,
+  h2:last-child,
+  h3:last-child,
+  h4:last-child,
+  h5:last-child,
+  h6:last-child,
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .summary {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    align-items: center;
+  }
+
+  .articles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+    margin: 0 auto;
+  }
+
+  .modal {
+    position: fixed;
+    bottom: 0;
+    width: 90%;
+    max-width: 100rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid ${theme.colors.border};
+    font-family: ${DMSans.style.fontFamily};
+    border-radius: 0.5rem;
+    padding: ${theme.space.c}rem;
+    z-index: 100;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: ${theme.colors.background};
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  @media (max-width: 1024px) {
+    .articles {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 700px) {
+    .articles {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .articles {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  main {
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: 142rem;
+  }
+
+  article {
+    border: 1px dashed ${theme.colors.border};
+  }
+
+  article .title {
+    background-color: ${theme.colors.overlay};
+    padding: ${theme.space.b}rem;
+  }
+
+  article .description {
+    padding: ${theme.space.b}rem;
+  }
   footer {
     border-top: 0.1rem solid ${theme.colors.border};
     text-align: center;
     opacity: 0.8;
     padding: ${theme.space.c}rem;
+  }
+
+  code {
+    font-family: ${DMMono.style.fontFamily};
+    padding: 0 ${theme.space.a}rem;
+    background: rgba(255, 205, 89, 0.4);
+  }
+
+  input {
+    border: 1px dashed ${theme.colors.border};
+    border-radius: 0.5rem;
+    padding: ${theme.space.a}rem;
+    font-size: 1.5rem;
+    background-color: ${theme.colors.overlay};
+    color: ${theme.colors.text};
+  }
+
+  input:focus {
+    outline: none;
+    border-style: solid;
+  }
+  input::placeholder {
+    color: ${theme.colors.text};
+    opacity: 0.5;
+  }
+  input:hover {
+    border-style: solid;
+  }
+  input:disabled {
+    background-color: ${theme.colors.overlayHover};
   }
 
   header {
@@ -74,6 +190,12 @@ export default css.global`
     vertical-align: middle;
   }
 
+  .intro div {
+    // two equal width divs
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+  }
   @keyframes spin {
     0% {
       transform: rotate(0deg);
@@ -85,14 +207,38 @@ export default css.global`
       transform: rotate(360deg);
     }
   }
+  @keyframes moveUp {
+    0% {
+      bottom: -10rem;
+    }
+    100% {
+      bottom: 0;
+    }
+  }
+  @keyframes moveDown {
+    0% {
+      bottom: 0;
+    }
+    100% {
+      bottom: -100rem;
+    }
+  }
+
+  .modal.open {
+    animation: moveUp 0.3s ease-in;
+    animationfillmode: 'forwards';
+  }
+  .modal.closed {
+    animation: moveDown 2s ease-out;
+    animationfillmode: 'forwards';
+  }
 
   button {
-    border: 0.1rem solid ${theme.colors.border};
     border-radius: 0.5rem;
     cursor: export;
     display: inline-flex;
-
-    background: ${theme.colors.soft};
+    border: 0;
+    background: ${theme.colors.overlay};
     color: ${theme.colors.text} !important;
     font-family: ${DMMono.style.fontFamily};
     font-size: 1.5rem;
@@ -101,11 +247,19 @@ export default css.global`
   }
 
   button:hover {
+    background: ${theme.colors.overlayHover};
+  }
+
+  button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  button:disabled:hover {
     background: ${theme.colors.overlay};
   }
 
   section {
-    background: ${theme.colors.soft};
+    background: ${theme.colors.overlay};
     padding: ${theme.space.c}rem;
     border-left: 0.1rem solid ${theme.colors.border};
     border-right: 0.1rem solid ${theme.colors.border};
@@ -128,11 +282,6 @@ export default css.global`
     margin-bottom: ${theme.space.c}rem;
     font-weight: 700;
     font-size: 3.2rem;
-  }
-
-  h3 {
-    font-weight: 700;
-    margin-bottom: ${theme.space.b}rem;
   }
 
   p {

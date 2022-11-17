@@ -5,7 +5,7 @@ export const theme = {
     link: '#1eaaf1',
     linkHover: '#0d8ecf',
     overlay: 'rgba(186, 21, 54, 0.075)',
-    soft: 'rgba(186, 21, 54, 0.045)',
+    overlayHover: 'rgba(186, 21, 54, 0.15)',
 
     success: '#d4edda',
     text: 'rgb(220, 10, 10)',
@@ -19,7 +19,7 @@ export const theme = {
     a: 0.5,
     b: 1,
     c: 2,
-    d: 4,
-    e: 8,
+    d: 3.5,
+    e: 5,
   },
 };
