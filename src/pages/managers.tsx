@@ -19,13 +19,13 @@ export default function Insights(): JSX.Element {
             </div>
             <div className='description'>
               <p>
-                We don't, really. We search for companies, and then we look at their
-                online presence. If they have a website, and we can use it, and they
-                have enough data to populate the table - we'll add them.
+                We don&apos;t, really. We search for companies, and then we look at
+                their online presence. If they have a website, and we can use it, and
+                they have enough data to populate the table - we&apos;ll add them.
               </p>
               <p>
-                This list is not comprehensive, so if you think we've missed a company,
-                please let us know.
+                This list is not comprehensive, so if you think we&apos;ve missed a
+                company, please let us know.
               </p>
             </div>
           </article>
