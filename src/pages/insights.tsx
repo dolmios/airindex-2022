@@ -17,17 +17,17 @@ export default function Insights(): JSX.Element {
           </div>
           <div className='description'>
             <p>
-              We scrapes Airbnb listings and reverse engineers the calendar data to get
-              the occupancy rate. These are simply insights, and we don&apos;t modify
-              the data in any way - so it may include duplicate listings, or any other
-              funky stuff that Airbnb does.
-            </p>
-            <p>
-              In less technical terms, we use some code to make a fancy spreadsheet.
+              We scrape Airbnb listings and reverse-engineer the calendar data to get
+              the occupancy rate. We don&apos;t modify the data in any way – so it may
+              include duplicate listings, or any other funky stuff that Airbnb does.
             </p>
             <p>
               You can learn more about web scraping here:{' '}
-              <a href='https://en.wikipedia.org/wiki/Web_scraping'>
+              <a
+                target='_blank'
+                className='border'
+                href='https://en.wikipedia.org/wiki/Web_scraping'
+                rel='noreferrer'>
                 https://en.wikipedia.org/wiki/Web_scraping
               </a>
             </p>

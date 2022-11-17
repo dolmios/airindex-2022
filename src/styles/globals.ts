@@ -1,18 +1,9 @@
-// eslint-disable-next-line camelcase
-import { DM_Mono, DM_Sans } from '@next/font/google';
 import css from 'styled-jsx/css';
 
 import { theme } from './theme';
 
-const DMMono = DM_Mono({
-  weight: ['400', '500'],
-});
-
-const DMSans = DM_Sans({
-  weight: ['400', '700'],
-});
-
 export default css.global`
+  /* resets */
   html {
     font-size: 62.5%;
   }
@@ -27,7 +18,7 @@ export default css.global`
 
   body {
     color: ${theme.colors.text};
-    font-family: ${DMSans.style.fontFamily};
+    font-family: ${theme.fontFamily.default};
     font-size: 1.5rem;
     line-height: 1.35;
     margin: 0;
@@ -35,17 +26,15 @@ export default css.global`
     background-color: ${theme.colors.background};
   }
 
+  /* typography */
   h1,
   h2,
   h3,
-  h4 {
-    margin-bottom: ${theme.space.c}rem;
-  }
-
+  h4,
   h5,
   h6,
   p {
-    margin-bottom: ${theme.space.b}rem;
+    margin-bottom: ${theme.space.a}rem;
   }
 
   h1:last-child,
@@ -58,11 +47,26 @@ export default css.global`
     margin-bottom: 0;
   }
 
+  a {
+    color: ${theme.colors.text};
+    text-decoration: none;
+  }
+  a.border {
+    border-bottom: 1px solid ${theme.colors.text};
+  }
+  a.border:hover {
+    opacity: 0.5;
+  }
+
   .summary {
     display: flex;
     justify-content: space-between;
     vertical-align: middle;
     align-items: center;
+  }
+  .summary * {
+    vertical-align: middle;
+    margin: 0;
   }
 
   .articles {
@@ -71,26 +75,6 @@ export default css.global`
     grid-column-gap: 1.5rem;
     grid-row-gap: 1.5rem;
     margin: 0 auto;
-  }
-
-  .modal {
-    position: fixed;
-    bottom: 0;
-    width: 90%;
-    max-width: 100rem;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 1px solid ${theme.colors.border};
-    font-family: ${DMSans.style.fontFamily};
-    border-radius: 0.5rem;
-    padding: ${theme.space.c}rem;
-    z-index: 100;
-    border-bottom: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    background-color: ${theme.colors.background};
-    max-height: 80vh;
-    overflow-y: auto;
   }
 
   @media (max-width: 1024px) {
@@ -128,14 +112,13 @@ export default css.global`
     padding: ${theme.space.b}rem;
   }
   footer {
-    border-top: 0.1rem solid ${theme.colors.border};
     text-align: center;
     opacity: 0.8;
     padding: ${theme.space.c}rem;
   }
 
   code {
-    font-family: ${DMMono.style.fontFamily};
+    font-family: ${theme.fontFamily.monospace};
     padding: 0 ${theme.space.a}rem;
     background: rgba(255, 205, 89, 0.4);
   }
@@ -170,7 +153,6 @@ export default css.global`
     vertical-align: middle;
     align-items: center;
     padding: ${theme.space.c}rem;
-    border-bottom: 0.1rem solid ${theme.colors.border};
   }
 
   header .logo {
@@ -178,15 +160,12 @@ export default css.global`
     align-items: center;
     background: ${theme.colors.overlay};
     border-radius: 0.5rem;
-    text-transform: uppercase;
     margin: 0 !important;
-    padding: 0 ${theme.space.b}rem;
+    padding: 0 ${theme.space.a}rem;
   }
 
   header .logo p {
     margin: 0 !important;
-    font-family: ${DMMono.style.fontFamily};
-
     vertical-align: middle;
   }
 
@@ -207,31 +186,6 @@ export default css.global`
       transform: rotate(360deg);
     }
   }
-  @keyframes moveUp {
-    0% {
-      bottom: -10rem;
-    }
-    100% {
-      bottom: 0;
-    }
-  }
-  @keyframes moveDown {
-    0% {
-      bottom: 0;
-    }
-    100% {
-      bottom: -100rem;
-    }
-  }
-
-  .modal.open {
-    animation: moveUp 0.3s ease-in;
-    animationfillmode: 'forwards';
-  }
-  .modal.closed {
-    animation: moveDown 2s ease-out;
-    animationfillmode: 'forwards';
-  }
 
   button {
     border-radius: 0.5rem;
@@ -240,7 +194,8 @@ export default css.global`
     border: 0;
     background: ${theme.colors.overlay};
     color: ${theme.colors.text} !important;
-    font-family: ${DMMono.style.fontFamily};
+    font-family: ${theme.fontFamily.default};
+    font-weight: 500;
     font-size: 1.5rem;
     padding: ${theme.space.a}rem ${theme.space.b}rem;
     line-height: 1;
@@ -251,7 +206,7 @@ export default css.global`
   }
 
   button:disabled {
-    opacity: 0.7;
+    opacity: 0.4;
     cursor: not-allowed;
   }
   button:disabled:hover {
@@ -261,8 +216,6 @@ export default css.global`
   section {
     background: ${theme.colors.overlay};
     padding: ${theme.space.c}rem;
-    border-left: 0.1rem solid ${theme.colors.border};
-    border-right: 0.1rem solid ${theme.colors.border};
   }
 
   header .logo .spin {
@@ -278,53 +231,85 @@ export default css.global`
     margin-right: ${theme.space.a}rem;
   }
 
-  h1 {
-    margin-bottom: ${theme.space.c}rem;
-    font-weight: 700;
-    font-size: 3.2rem;
+  header button {
+    background: transparent;
+    border: 0.1rem solid ${theme.colors.overlayHover};
   }
 
-  p {
-    margin-bottom: ${theme.space.b}rem;
+  header button:disabled,
+  header button:hover {
+    opacity: 1;
+    background: ${theme.colors.overlay};
   }
-  p:last-child {
-    margin-bottom: 0;
-  }
-
-  a {
-    color: ${theme.colors.text};
-    text-decoration: none;
-  }
-
+  /* tables */
   table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
     overflow: auto;
     max-width: 100%;
+    font-family: ${theme.fontFamily.monospace};
   }
-
-  th {
-    text-align: left;
-    font-size: 1.3rem;
-    background: ${theme.colors.overlay};
-  }
-
-  td,
-  th {
-    padding: ${theme.space.b}rem ${theme.space.c}rem;
-  }
-
-  tbody {
-    font-family: ${DMMono.style.fontFamily};
-  }
-
   tr {
     background-color: ${theme.colors.overlay};
     border-top: 0;
     border-bottom: 0.1rem dashed ${theme.colors.border};
   }
+  th {
+    text-align: left;
+    font-size: 1.3rem;
+    background: ${theme.colors.overlay};
+  }
+  td,
+  th {
+    padding: ${theme.space.b}rem ${theme.space.c}rem;
+  }
 
+  /* modal component */
+  @keyframes moveUp {
+    0% {
+      bottom: -20rem;
+    }
+    100% {
+      bottom: 0;
+    }
+  }
+  @keyframes moveDown {
+    0% {
+      bottom: 0;
+    }
+    100% {
+      bottom: -40rem;
+    }
+  }
+  .modal {
+    position: fixed;
+    bottom: 0;
+    width: 90%;
+    max-width: 100rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid ${theme.colors.border};
+    border-radius: 0.5rem;
+    padding: ${theme.space.c}rem;
+    z-index: 100;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: ${theme.colors.background};
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  .modal.open {
+    animation: moveUp 0.25s ease-in;
+    animationfillmode: 'forwards';
+  }
+  .modal.closed {
+    animation: moveDown 0.5s ease-out;
+    animationfillmode: 'forwards';
+  }
+
+  /* utility classes */
   .pta {
     padding-top: ${theme.space.a}rem !important;
   }

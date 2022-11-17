@@ -44,7 +44,7 @@ export default function Modal({
   });
 
   return (
-    <div>
+    <div style={{ display: 'inline-block', position: 'relative' }}>
       <div onClick={handleClick}>{trigger}</div>
       {isMounted && (
         <div className={`modal ${isOpen ? 'open' : 'closed'}`} ref={ref}>

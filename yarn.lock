@@ -138,13 +138,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/font@npm:^13.0.3":
-  version: 13.0.3
-  resolution: "@next/font@npm:13.0.3"
-  checksum: 1e703a93b14129e147121589cdb3b6b19c2e473077b9fe611676d1913f5302333346cd5e7dcb1b9068aa899cb8386aa31259f58e52ee48ed5c6566ef04de0fec
-  languageName: node
-  linkType: hard
-
 "@next/swc-android-arm-eabi@npm:13.0.3":
   version: 13.0.3
   resolution: "@next/swc-android-arm-eabi@npm:13.0.3"
@@ -816,18 +809,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "airindex@workspace:."
   dependencies:
-    "@next/font": ^13.0.3
     "@supabase/supabase-js": ^2.1.0
     "@types/node": 18.11.9
     "@types/react": 18.0.25
     "@types/react-dom": 18.0.9
-    dayjs: ^1.11.6
     eslint: 8.27.0
     eslint-config-dolmios: ^1.3.0
     eslint-config-next: 13.0.3
     next: 13.0.3
     next-seo: ^5.14.1
-    next-sitemap: ^3.1.31
+    next-sitemap: ^3.1.32
     prettier: ^2.7.1
     react: 18.2.0
     react-dom: 18.2.0
@@ -835,7 +826,7 @@ __metadata:
     swr: ^1.3.0
     typescript: 4.9.3
     usehooks-ts: ^2.9.1
-    vercel: ^28.5.3
+    vercel: ^28.5.4
   languageName: unknown
   linkType: soft
 
@@ -1336,13 +1327,6 @@ __metadata:
   version: 1.0.8
   resolution: "damerau-levenshtein@npm:1.0.8"
   checksum: d240b7757544460ae0586a341a53110ab0a61126570ef2d8c731e3eab3f0cb6e488e2609e6a69b46727635de49be20b071688698744417ff1b6c1d7ccd03e0de
-  languageName: node
-  linkType: hard
-
-"dayjs@npm:^1.11.6":
-  version: 1.11.6
-  resolution: "dayjs@npm:1.11.6"
-  checksum: 18bdfd927009b68eab08dca578e421d4a581cefcbe9337f54c5d9e0d941ffb6b221c4b2c1cab15cdd9d419940e768ac4c984531461a90bbe1c158b75fe160580
   languageName: node
   linkType: hard
 
@@ -3399,9 +3383,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-sitemap@npm:^3.1.31":
-  version: 3.1.31
-  resolution: "next-sitemap@npm:3.1.31"
+"next-sitemap@npm:^3.1.32":
+  version: 3.1.32
+  resolution: "next-sitemap@npm:3.1.32"
   dependencies:
     "@corex/deepmerge": ^4.0.29
     minimist: ^1.2.6
@@ -3411,7 +3395,7 @@ __metadata:
   bin:
     next-sitemap: bin/next-sitemap.mjs
     next-sitemap-cjs: bin/next-sitemap.cjs
-  checksum: d8013502edc2679a9d6afb21acdf2524aebc62486952cce9bab1b56bcca43088fa4b53f1d67deb519f4bf8c9edb7e5f98c7ce20ab0cd97d640657c9b7f022812
+  checksum: e11887974634113d824c438b31da414e1e3285a7bd123eb454f7ce6ae0a41cf210d8af8ba958ebad4e733ac7239d1a9aa75763a1cd5c898a0c6e9819bfa7cbdd
   languageName: node
   linkType: hard
 
@@ -4783,9 +4767,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vercel@npm:^28.5.3":
-  version: 28.5.3
-  resolution: "vercel@npm:28.5.3"
+"vercel@npm:^28.5.4":
+  version: 28.5.4
+  resolution: "vercel@npm:28.5.4"
   dependencies:
     "@vercel/build-utils": 5.5.8
     "@vercel/go": 2.2.16
@@ -4802,7 +4786,7 @@ __metadata:
   bin:
     vc: dist/index.js
     vercel: dist/index.js
-  checksum: 39922ae260b3dc4f01768a7bfcb1b58d6604dcf36567616a25be249f3ac4e71a0b8253ffe5ed6d5faff4057f88de148291e27b8c14a04f18dcdab3fbca602be2
+  checksum: c2278a9c7f2ec8ebc4247bb26f8349af40baa07c94c69140627530ab1ca4c1c2f3916995dda2899d9b8969a247cf596ef3126ff56801e40ce245babecd0c1f53
   languageName: node
   linkType: hard
 

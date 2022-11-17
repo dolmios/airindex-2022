@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  images: {
+    domains: [process.env.NEXT_PUBLIC_SUPABASE_ENDPOINT.replace('https://', '')],
+  },
 
+  reactStrictMode: true,
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   async rewrites() {
     return [

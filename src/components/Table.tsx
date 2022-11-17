@@ -12,7 +12,7 @@ export default function Table({
   loading?: boolean;
   error?: Error;
 }): JSX.Element {
-  const [sortBy, setSortBy] = useState(0);
+  const [sortBy, setSortBy] = useState(1);
   const [sortDirection, setSortDirection] = useState('asc');
 
   function handleSort(index: number): void {

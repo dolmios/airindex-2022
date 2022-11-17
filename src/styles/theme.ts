@@ -1,14 +1,14 @@
 export const theme = {
   colors: {
-    background: 'rgb(255, 245, 247)',
+    background: '#ffeaea',
     border: 'rgba(186, 21, 54, 0.4)',
     link: '#1eaaf1',
     linkHover: '#0d8ecf',
-    overlay: 'rgba(186, 21, 54, 0.075)',
-    overlayHover: 'rgba(186, 21, 54, 0.15)',
+    overlay: 'rgba(186, 21, 54, 0.08)',
+    overlayHover: 'rgba(186, 21, 54, 0.16)',
 
     success: '#d4edda',
-    text: 'rgb(220, 10, 10)',
+    text: '#dc0a0a',
     warning: '#fff3cd',
   },
   fontFamily: {
