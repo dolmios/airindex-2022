@@ -3,6 +3,35 @@ import css from 'styled-jsx/css';
 import { theme } from './theme';
 
 export default css.global`
+  /* keyframes */
+  @keyframes moveUp {
+    0% {
+      bottom: -20rem;
+    }
+    100% {
+      bottom: 0;
+    }
+  }
+  @keyframes moveDown {
+    0% {
+      bottom: 0;
+    }
+    100% {
+      bottom: -40rem;
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
   /* resets */
   html {
     font-size: 62.5%;
@@ -50,6 +79,7 @@ export default css.global`
   a {
     color: ${theme.colors.text};
     text-decoration: none;
+    cursor: pointer;
   }
   a.border {
     border-bottom: 1px solid ${theme.colors.text};
@@ -58,41 +88,7 @@ export default css.global`
     opacity: 0.5;
   }
 
-  .summary {
-    display: flex;
-    justify-content: space-between;
-    vertical-align: middle;
-    align-items: center;
-  }
-  .summary * {
-    vertical-align: middle;
-    margin: 0;
-  }
-
-  .articles {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 1.5rem;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 1024px) {
-    .articles {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  @media (max-width: 700px) {
-    .articles {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (max-width: 480px) {
-    .articles {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-
+  /* layout */
   main {
     margin: 0 auto;
     padding: 0 1rem;
@@ -147,6 +143,35 @@ export default css.global`
     background-color: ${theme.colors.overlayHover};
   }
 
+  textarea {
+    border: 1px dashed ${theme.colors.border};
+    border-radius: 0.5rem;
+    padding: ${theme.space.a}rem;
+    font-size: 1.5rem;
+    background-color: ${theme.colors.overlay};
+    color: ${theme.colors.text};
+    min-width: 100%;
+    min-height: 10rem;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-style: solid;
+  }
+
+  textarea:hover {
+    border-style: solid;
+  }
+
+  textarea:disabled {
+    background-color: ${theme.colors.overlayHover};
+  }
+
+  textarea::placeholder {
+    color: ${theme.colors.text};
+    opacity: 0.5;
+  }
+
   header {
     display: flex;
     justify-content: space-between;
@@ -169,27 +194,9 @@ export default css.global`
     vertical-align: middle;
   }
 
-  .intro div {
-    // two equal width divs
-    width: 50%;
-    display: inline-block;
-    vertical-align: top;
-  }
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(180deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
   button {
     border-radius: 0.5rem;
-    cursor: export;
+    cursor: pointer;
     display: inline-flex;
     border: 0;
     background: ${theme.colors.overlay};
@@ -265,23 +272,41 @@ export default css.global`
     padding: ${theme.space.b}rem ${theme.space.c}rem;
   }
 
-  /* modal component */
-  @keyframes moveUp {
-    0% {
-      bottom: -20rem;
-    }
-    100% {
-      bottom: 0;
+  /* layout classes */
+  .spaced {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    align-items: center;
+  }
+  .spaced * {
+    vertical-align: middle;
+    margin: 0;
+  }
+  .articles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 1024px) {
+    .articles {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
-  @keyframes moveDown {
-    0% {
-      bottom: 0;
-    }
-    100% {
-      bottom: -40rem;
+  @media (max-width: 700px) {
+    .articles {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
+  @media (max-width: 480px) {
+    .articles {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
   .modal {
     position: fixed;
     bottom: 0;

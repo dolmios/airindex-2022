@@ -1,4 +1,3 @@
-// simple reusable table with sorting and filtering
 import React, { ReactNode, useState } from 'react';
 
 export default function Table({

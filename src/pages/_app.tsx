@@ -1,5 +1,3 @@
-// eslint-disable-next-line camelcase
-
 import type { AppProps } from 'next/app';
 import { SWRConfig } from 'swr';
 
@@ -35,10 +33,10 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         <Header />
         <Component {...pageProps} />
         <Footer />
-        <style jsx global>
-          {globalStyles}
-        </style>
       </main>
+      <style global jsx>
+        {globalStyles}
+      </style>
     </SWRConfig>
   );
 }

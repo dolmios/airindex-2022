@@ -48,7 +48,7 @@ export default function Modal({
       <div onClick={handleClick}>{trigger}</div>
       {isMounted && (
         <div className={`modal ${isOpen ? 'open' : 'closed'}`} ref={ref}>
-          <div className='summary'>
+          <div className='spaced'>
             <h3>{title}</h3>
             <button onClick={handleClose}>X</button>
           </div>

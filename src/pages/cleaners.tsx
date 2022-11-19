@@ -3,16 +3,15 @@ import useSWR from 'swr';
 
 import Table from '../components/Table';
 
-export default function Managers(): JSX.Element {
-  const { data, error } = useSWR(`/build-managers`);
+export default function Cleaners(): JSX.Element {
+  const { data, error } = useSWR(`/build-cleaners`);
 
   return (
-    <div id='Managers'>
+    <div id='Cleaners'>
       <section>
         <div className='spaced'>
-          <h1>Airbnb Management Companies</h1>
+          <h1>Airbnb Cleaning Companies</h1>
         </div>
-
         <div className='mtc disclaimer'>
           <article>
             <div className='title'>
@@ -36,15 +35,7 @@ export default function Managers(): JSX.Element {
       <Table
         error={error}
         loading={!data && !error}
-        head={[
-          '',
-          'Company',
-          'Primary Location',
-          'Established',
-          'Management Fees',
-          'Website',
-          'Blog',
-        ]}
+        head={['', 'Company', 'Primary Location', 'Established', 'Website', 'Blog']}
         body={
           data && data.length > 0
             ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -52,7 +43,7 @@ export default function Managers(): JSX.Element {
                 <Image
                   key={item.id + (item.favicon || '')}
                   alt={item.company}
-                  src={`${process.env.NEXT_PUBLIC_SUPABASE_ENDPOINT}/storage/v1/object/public/managers/${item.id}.png`}
+                  src={`${process.env.NEXT_PUBLIC_SUPABASE_ENDPOINT}/storage/v1/object/public/cleaners/${item.id}.png`}
                   width={16}
                   height={16}
                   style={{
@@ -62,15 +53,13 @@ export default function Managers(): JSX.Element {
                 item.company,
                 item.location,
                 item.established,
-                item.fees && item.fees !== '-' ? item.fees : <>-</>,
                 <a
+                  key={item.id + item.website}
                   href={item.website || '#'}
                   target='_blank'
-                  rel='noreferrer'
-                  key={item.id + item.website}>
-                  <button disabled={!item.website}>Website</button>{' '}
+                  rel='noreferrer'>
+                  <button disabled={!item.website}>Website</button>
                 </a>,
-
                 <a
                   key={item.id + item.blog}
                   href={item.blog && item.blog !== '-' ? item.blog : '#'}

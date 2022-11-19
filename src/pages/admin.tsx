@@ -109,12 +109,11 @@ export default function Admin(): JSX.Element {
     },
   ];
 
-  // if router contains ?auth=06102000, then return, else redirect '/'
-  if (router.query.auth === '06102000') {
+  if (router.query.auth === process.env.NEXT_PUBLIC_SCRAPE_ADMIN) {
     return (
       <div>
         <section id='Admin'>
-          <div className='summary'>
+          <div className='spaced'>
             <h1>Admin</h1>
             <input type='text' />
           </div>

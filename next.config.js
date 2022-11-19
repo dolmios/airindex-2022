@@ -16,6 +16,10 @@ const nextConfig = {
         destination: `${process.env.NEXT_PUBLIC_SUPABASE_ENDPOINT}/rest/v1/managers?apikey=${process.env.NEXT_PUBLIC_SUPABASE_API_KEY}&order=company`,
         source: '/build-managers',
       },
+      {
+        destination: `${process.env.NEXT_PUBLIC_SUPABASE_ENDPOINT}/rest/v1/cleaners?apikey=${process.env.NEXT_PUBLIC_SUPABASE_API_KEY}&order=company`,
+        source: '/build-cleaners',
+      },
     ];
   },
   swcMinify: true,

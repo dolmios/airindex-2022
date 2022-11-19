@@ -6,9 +6,9 @@ export default function Insights(): JSX.Element {
   const { data, error } = useSWR(`/build-insights`);
   return (
     <section id='Insights'>
-      <div className='summary'>
-        <h1>Insights</h1>
-        <p>Updated 1st of November (YTD)</p>
+      <div className='spaced'>
+        <h1>Market Insights</h1>
+        <code>Updated 1st of November 2022</code>
       </div>
       <div className='mtc disclaimer'>
         <article>
