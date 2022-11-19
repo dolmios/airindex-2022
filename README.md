@@ -1,6 +1,6 @@
-# interwebs
+# airindex
 
-A research project directory of short-term rental companies in Australia.
+A research directory of short-term rental companies and alike in Australia.
 
 ### Develop
 
