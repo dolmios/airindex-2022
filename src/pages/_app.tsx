@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-unresolved
+import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
 import { SWRConfig } from 'swr';
 
@@ -34,6 +36,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         <Component {...pageProps} />
         <Footer />
       </main>
+      <Analytics />
       <style global jsx>
         {globalStyles}
       </style>
