@@ -9,14 +9,12 @@ export default function Home(): JSX.Element {
         <div className='ptd mbd'>
           <h1>Airbnb and short-term rentals the Australian way.</h1>
           <p className='mtc'>
-            AirIndex aims to be a trustworthy and up-to-date resource for Australian
-            Airbnb hosts, managers and service teams. We track data, insights and
-            innovation across the domestic industry.
+            AirIndex aims to be a trustworthy and up-to-date resource for Australian Airbnb hosts, managers and service
+            teams. We track data, insights and innovation across the domestic industry.
           </p>
           <p className='mtc'>
-            We are building tools to help property owners and other industry
-            professionals make better decisions. Our mission is to drive innovation in
-            this industry, and support better service and professionalism.
+            We are building tools to help property owners and other industry professionals make better decisions. Our
+            mission is to drive innovation in this industry, and support better service and professionalism.
           </p>
         </div>
       </section>
@@ -26,10 +24,9 @@ export default function Home(): JSX.Element {
           <Link href='/insights'>
             <article>
               <div className='title'>
-                <h3>☞ Market Insights</h3>
-                <p className='mta'>
-                  A selection of key insights and data points from the Australian
-                  short-term rental market.
+                <h3>Market Insights</h3>
+                <p className='mtb'>
+                  A selection of key insights and data points from the Australian short-term rental market.
                 </p>
               </div>
             </article>
@@ -39,11 +36,8 @@ export default function Home(): JSX.Element {
           <Link href='/managers'>
             <article>
               <div className='title'>
-                <h3>☞ Airbnb Management Companies</h3>
-                <p className='mta'>
-                  A growing directory of short-term rental management companies in
-                  Australia.
-                </p>
+                <h3>Airbnb Management Companies</h3>
+                <p className='mtb'>A growing directory of short-term rental management companies in Australia.</p>
               </div>
             </article>
           </Link>
@@ -52,10 +46,9 @@ export default function Home(): JSX.Element {
           <Link href='/cleaners'>
             <article>
               <div className='title'>
-                <h3>☞ Airbnb Cleaning Companies</h3>
-                <p className='mta'>
-                  A directory of cleaning companies in Australia providing Airbnb
-                  cleaning services.
+                <h3>Airbnb Cleaning Companies</h3>
+                <p className='mtb'>
+                  A directory of cleaning companies in Australia providing Airbnb cleaning services.
                 </p>
               </div>
             </article>
