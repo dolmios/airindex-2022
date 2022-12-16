@@ -22,14 +22,6 @@ export default function Document(): JSX.Element {
       <body>
         <Main />
         <NextScript />
-
-        <Script
-          defer
-          strategy='beforeInteractive'
-          src='https://api.pirsch.io/pirsch.js'
-          id='pirschjs'
-          data-code='vWV1yEsCz6o73KIL30Ejzg1onOYIuECH'
-        />
       </body>
     </Html>
   );
