@@ -4,7 +4,7 @@
 
 ## Install
 
-```
+```sh
 pnpm install
 ```
 
@@ -12,20 +12,20 @@ pnpm install
 
 Open [http://localhost:420](http://localhost:420) in the browser. If there are linting issues, the development server won’t start.
 
-```
+```sh
 pnpm dev
 ```
 
 Before you deploy, lint your code and format it. Then run the build.
 
-```
+```sh
 pnpm tidy
 pnpm build
 ```
 
 If you change the pages directory, build a fresh sitemap.
 
-```
+```sh
 pnpm sitemap
 ```
 

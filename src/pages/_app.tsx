@@ -1,11 +1,11 @@
 // eslint-disable-next-line import/no-unresolved
-import { Analytics } from '@vercel/analytics/react';
-import type { AppProps } from 'next/app';
-import { SWRConfig } from 'swr';
+import { Analytics } from "@vercel/analytics/react";
+import type { AppProps } from "next/app";
+import { SWRConfig } from "swr";
 
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import globalStyles from '../styles/globals';
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import globalStyles from "../styles/globals";
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
@@ -17,13 +17,13 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         fetcher: async (path: any): Promise<any> => {
           const res = await fetch(path, {
             headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
+              Accept: "application/json",
+              "Content-Type": "application/json",
             },
           });
 
           if (!res.ok) {
-            const error = new Error('An error occurred while fetching the data.');
+            const error = new Error("An error occurred while fetching the data.");
             throw error;
           }
           return res.json();

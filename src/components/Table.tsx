@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useState } from "react";
 
 export default function Table({
   head,
@@ -12,14 +12,14 @@ export default function Table({
   error?: Error;
 }): JSX.Element {
   const [sortBy, setSortBy] = useState(1);
-  const [sortDirection, setSortDirection] = useState('asc');
+  const [sortDirection, setSortDirection] = useState("asc");
 
   function handleSort(index: number): void {
     if (sortBy === index) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {
       setSortBy(index);
-      setSortDirection('asc');
+      setSortDirection("asc");
     }
   }
 
@@ -27,12 +27,12 @@ export default function Table({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (a[sortBy] < b[sortBy]) {
-      return sortDirection === 'asc' ? -1 : 1;
+      return sortDirection === "asc" ? -1 : 1;
     }
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (a[sortBy] > b[sortBy]) {
-      return sortDirection === 'asc' ? 1 : -1;
+      return sortDirection === "asc" ? 1 : -1;
     }
 
     return 0;
@@ -43,11 +43,11 @@ export default function Table({
   return (
     <section
       style={{
-        maxWidth: '100%',
-        overflowY: 'auto',
-        paddingLeft: '0',
-        paddingRight: '0',
-        position: 'relative',
+        maxWidth: "100%",
+        overflowY: "auto",
+        paddingLeft: "0",
+        paddingRight: "0",
+        position: "relative",
       }}>
       <table>
         <thead>
@@ -55,10 +55,7 @@ export default function Table({
             {head.map((cell, index) => (
               <th key={cell}>
                 <div onClick={(): void => handleSort(index)}>
-                  {cell}{' '}
-                  {index === sortBy && (
-                    <span>{sortDirection === 'asc' ? '▲' : '▼'}</span>
-                  )}
+                  {cell} {index === sortBy && <span>{sortDirection === "asc" ? "▲" : "▼"}</span>}
                 </div>
               </th>
             ))}

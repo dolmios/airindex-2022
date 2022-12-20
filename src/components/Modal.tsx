@@ -1,5 +1,5 @@
-import { ReactNode, useRef, useState } from 'react';
-import { useEventListener, useOnClickOutside } from 'usehooks-ts';
+import { ReactNode, useRef, useState } from "react";
+import { useEventListener, useOnClickOutside } from "usehooks-ts";
 
 export default function Modal({
   children,
@@ -37,22 +37,22 @@ export default function Modal({
 
   useOnClickOutside(ref, () => handleClose());
 
-  useEventListener('keydown', (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
+  useEventListener("keydown", (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
       handleClose();
     }
   });
 
   return (
-    <div style={{ display: 'inline-block', position: 'relative' }}>
+    <div style={{ display: "inline-block", position: "relative" }}>
       <div onClick={handleClick}>{trigger}</div>
       {isMounted && (
-        <div className={`modal ${isOpen ? 'open' : 'closed'}`} ref={ref}>
-          <div className='spaced'>
+        <div className={`modal ${isOpen ? "open" : "closed"}`} ref={ref}>
+          <div className="spaced">
             <h3>{title}</h3>
             <button onClick={handleClose}>X</button>
           </div>
-          <div className='mtc'>{children}</div>
+          <div className="mtc">{children}</div>
         </div>
       )}
     </div>

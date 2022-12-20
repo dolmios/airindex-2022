@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import useSWRImmutable from 'swr/immutable';
+import { useState } from "react";
+import useSWRImmutable from "swr/immutable";
 
-import { supabase } from '../hooks/useClient';
+import { supabase } from "../hooks/useClient";
 
 export default function Build({
   city,
@@ -17,19 +17,19 @@ export default function Build({
       ? `${process.env.NEXT_PUBLIC_SCRAPE_ENDPOINT}/market/summary/?access_token=${process.env.NEXT_PUBLIC_SCRAPE_API_KEY}&city_id=${city}&currency=native`
       : null
   );
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
 
   async function handleSave(): Promise<void> {
-    const { error: saveError } = await supabase.from('insights').upsert({
+    const { error: saveError } = await supabase.from("insights").upsert({
       data,
       reference,
       updated_at: new Date(),
     });
 
     if (saveError) {
-      setStatus('error');
+      setStatus("error");
     } else {
-      setStatus('success');
+      setStatus("success");
     }
   }
 
@@ -40,7 +40,7 @@ export default function Build({
         <button onClick={(): void => setIsReady(true)}>Start</button>
       </div>
 
-      <div className='mtd'>
+      <div className="mtd">
         <h2>2) Save</h2>
         {isReady && data ? (
           <button onClick={handleSave}>Save</button>
@@ -53,7 +53,7 @@ export default function Build({
         )}
       </div>
       {status && (
-        <div className='mtb'>
+        <div className="mtb">
           <p>{status}</p>
         </div>
       )}
