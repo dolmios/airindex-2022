@@ -3,6 +3,8 @@ import useSWRImmutable from "swr/immutable";
 
 import { supabase } from "../hooks/useClient";
 
+import { theme } from "./Theme";
+
 export default function Build({
   city,
   reference,
@@ -37,13 +39,17 @@ export default function Build({
     <div key={reference}>
       <div>
         <h2>1) Fetch</h2>
-        <button onClick={(): void => setIsReady(true)}>Start</button>
+        <button type="button" onClick={(): void => setIsReady(true)}>
+          Start
+        </button>
       </div>
 
-      <div className="mtd">
+      <div style={{ marginTop: `${theme.space.d}` }}>
         <h2>2) Save</h2>
         {isReady && data ? (
-          <button onClick={handleSave}>Save</button>
+          <button type="button" onClick={(): Promise<void> => handleSave()}>
+            Save
+          </button>
         ) : isReady && error ? (
           <p>Error</p>
         ) : isReady && !data ? (
@@ -53,7 +59,7 @@ export default function Build({
         )}
       </div>
       {status && (
-        <div className="mtb">
+        <div style={{ marginTop: `${theme.space.c}` }}>
           <p>{status}</p>
         </div>
       )}

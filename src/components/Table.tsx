@@ -1,4 +1,28 @@
+import { CSSAttribute, styled } from "goober";
 import React, { ReactNode, useState } from "react";
+
+import { theme } from "./Theme";
+
+const TableStyles = styled("table")((): CSSAttribute | string => ({
+  borderCollapse: "collapse",
+  width: "100%",
+  borderSpacing: "0",
+  overflow: "auto",
+  fontSize: "1.5rem",
+
+  tr: {
+    borderTop: "none",
+    backgroundColor: theme.colors.overlay,
+    borderBottom: `0.1rem dashed ${theme.colors.border}`,
+  },
+  th: {
+    textAlign: "left",
+    backgroundColor: theme.colors.overlay,
+  },
+  "th, td": {
+    padding: `${theme.space.b}rem ${theme.space.c}rem`,
+  },
+}));
 
 export default function Table({
   head,
@@ -6,10 +30,10 @@ export default function Table({
   loading,
   error,
 }: {
-  head: Array<string>;
   body: Array<Array<ReactNode | string>>;
-  loading?: boolean;
   error?: Error;
+  head: Array<string>;
+  loading?: boolean;
 }): JSX.Element {
   const [sortBy, setSortBy] = useState(1);
   const [sortDirection, setSortDirection] = useState("asc");
@@ -49,12 +73,12 @@ export default function Table({
         paddingRight: "0",
         position: "relative",
       }}>
-      <table>
+      <TableStyles>
         <thead>
           <tr>
             {head.map((cell, index) => (
               <th key={cell}>
-                <div onClick={(): void => handleSort(index)}>
+                <div role="none" onClick={(): void => handleSort(index)}>
                   {cell} {index === sortBy && <span>{sortDirection === "asc" ? "▲" : "▼"}</span>}
                 </div>
               </th>
@@ -80,7 +104,7 @@ export default function Table({
             ))
           )}
         </tbody>
-      </table>
+      </TableStyles>
     </section>
   );
 }

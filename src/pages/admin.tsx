@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 
 import Build from "../components/Build";
 import Modal from "../components/Modal";
+import Table from "../components/Table";
+import { theme } from "../components/Theme";
 
 export default function Admin(): JSX.Element {
   const router = useRouter();
@@ -109,61 +111,39 @@ export default function Admin(): JSX.Element {
     },
   ];
 
-  if (router.query.auth === process.env.NEXT_PUBLIC_SCRAPE_ADMIN) {
+  if (router.query.auth && router.query.auth === process.env.NEXT_PUBLIC_SCRAPE_ADMIN) {
     return (
-      <div>
-        <section id="Admin">
-          <div className="spaced">
-            <h1>Admin</h1>
-            <input type="text" />
-          </div>
+      <main>
+        <section>
+          <h1>Admin</h1>
         </section>
-        <section
-          style={{
-            maxWidth: "100%",
-            overflowY: "auto",
-            paddingLeft: "0",
-            paddingRight: "0",
-            position: "relative",
-          }}>
-          <table>
-            <thead>
-              <tr>
-                <th>Dataset</th>
-                <th>Reference</th>
-                <th>City ID</th>
-                <th>Cost</th>
-                <th>Build</th>
-              </tr>
-            </thead>
-            <tbody>
-              {dataSet.map((data) => (
-                <tr key={data.cityId}>
-                  <td>{data.dataset}</td>
-                  <td>
-                    <code>{data.reference}</code>
-                  </td>
-                  <td>
-                    <code>{data.cityId}</code>
-                  </td>
-                  <td>$1.00</td>
-                  <td>
-                    <Modal title={`Build ${data.reference}`} trigger={<button>Build</button>}>
-                      <Build city={data.cityId} reference={data.reference} />
-                    </Modal>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <section style={{ paddingTop: `${theme.space.c}rem` }}>
+          <Table
+            body={dataSet.map((data) => [
+              data.dataset,
+              <code key={data.cityId + data.reference}>{data.reference}</code>,
+              <code key={data.cityId}>{data.cityId}</code>,
+              "$1.00",
+              <Modal
+                key={data.cityId + data.reference + "build"}
+                title={`Build ${data.reference}`}
+                trigger={<button type="button">Build</button>}>
+                <Build city={data.cityId} reference={data.reference} />
+              </Modal>,
+            ])}
+            head={["Dataset", "Reference", "City ID", "Cost", "Build"]}
+          />
         </section>
-      </div>
+      </main>
     );
   } else {
     return (
-      <section>
-        <h3>There was an error.</h3>
-      </section>
+      <main>
+        <section>
+          <h1>There was an error.</h1>
+          <p>You are not authorised to view this page.</p>
+        </section>
+      </main>
     );
   }
 }
